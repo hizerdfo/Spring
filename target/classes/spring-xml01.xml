@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+		<bean id="h1" class="basic.Hello" />
+		<bean id="h2" class="basic.Hello" />
+		
+		<bean id ="hankookTire" class="di.xml01.HankookTire"></bean>
+		<bean id="car" class="di.xml01.Car">
+			<constructor-arg ref="hankookTire"></constructor-arg>
+		</bean>
+		<bean id="car1" class="di.xml01.Car">
+			<constructor-arg value="genesis"></constructor-arg>
+			<constructor-arg ref="hankookTire"></constructor-arg>
+		</bean>
+		<bean id="car2" class="di.xml01.Car">		
+			<constructor-arg ref="hankookTire" index="2"></constructor-arg>
+			<constructor-arg value="genesis" index="0"></constructor-arg>
+			<constructor-arg value="2020" index="1"></constructor-arg>
+		</bean>
+		<bean id="car5" class="di.xml01.Car">		
+			<property name="driver" >
+				<list>
+					<value>엄마</value>
+					<value>아빠</value>
+					<value>언니</value>
+					<value>오빠</value>
+				</list>
+			</property>
+		</bean>
+		<bean id="car6" class="di.xml01.Car">		
+			<property name="AS" >
+				<map>
+					<entry key ="타이어" value="교체">
+					</entry>
+					<entry key ="엔진" value="교체">
+					</entry>
+				</map>
+			</property>
+		</bean>
+		
+		
+</beans>
